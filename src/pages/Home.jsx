@@ -23,6 +23,15 @@ import p11 from "../assets/pimages/p11.jpg";
 import p12 from "../assets/pimages/p12.jpg";
 import p13 from "../assets/pimages/p13.jpg";
 
+// --- Partner logos (for marquee) ---
+import logo1 from "../assets/logos/1.png";
+import logo2 from "../assets/logos/2.png";
+import logo3 from "../assets/logos/3.png";
+import logo4 from "../assets/logos/4.png";
+import logo5 from "../assets/logos/5.png";
+import logo6 from "../assets/logos/6.png";
+
+
 /* =========================
    UI PRIMITIVES
    ========================= */
@@ -207,13 +216,13 @@ export default function Home() {
     ],
   };
 
-  const partnerLogos = [
-    { src: "/src/assets/logos/1.png", alt: "Company 1" },
-    { src: "/src/assets/logos/2.png", alt: "Company 2" },
-    { src: "/src/assets/logos/3.png", alt: "Company 3" },
-    { src: "/src/assets/logos/4.png", alt: "Company 4" },
-    { src: "/src/assets/logos/5.png", alt: "Company 5" },
-    { src: "/src/assets/logos/6.png", alt: "Company 6" },
+ const partnerLogos = [
+    { src: logo1, alt: "Company 1" },
+    { src: logo2, alt: "Company 2" },
+    { src: logo3, alt: "Company 3" },
+    { src: logo4, alt: "Company 4" },
+    { src: logo5, alt: "Company 5" },
+    { src: logo6, alt: "Company 6" },
   ];
 
   const featured = CATEGORIES;
