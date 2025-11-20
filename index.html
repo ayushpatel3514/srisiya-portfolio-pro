@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srisiya Design</title>
+  </head>
+  <body>
+    <div id="root"></div> <!-- must exist -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+<!-- to run file 
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+npm install
+npm run dev -->
+<!-- cd "C:\Users\dhruv\Downloads\srisiya-portfolio-pro\srisiya-portfolio-pro"
+dir package.json
+npm install
+npm run dev -->
+ <!-- {/* Top nav */}
+      <header className="sticky top-0 z-50 backdrop-blur border-b border-neutral-900/60 bg-neutral-950/60">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <a href="#home" className="font-semibold tracking-tight">
+            {profile.name}
+          </a>
+          <nav className="hidden sm:flex gap-6 text-sm">
+            <a href="#about" className="hover:opacity-80">About</a>
+            <a href="#featured" className="hover:opacity-80">Featured</a>
+            <a href="#work" className="hover:opacity-80">Work</a>
+            <a href="#services" className="hover:opacity-80">Services</a>
+            <a href="#contact" className="hover:opacity-80">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="text-sm rounded-full border px-3 py-1 hover:bg-white hover:text-black transition"
+          >
+            Let’s talk
+          </a>
+        </div>
+      </header> -->
+
+      <!-- {/* Hero */}
+      <section id="home" className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-24 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.20),rgba(56,189,248,0.08)_40%,transparent_70%)] blur-3xl" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 pt-20 pb-14 sm:pt-28 sm:pb-24">
+          <div className="grid items-center gap-10 sm:grid-cols-2">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight"
+              >
+                <span className="text-white">AN </span>
+                {/* Animated gradient text */}
+                <motion.span
+                  className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 bg-[length:200%_auto] text-transparent bg-clip-text"
+                  animate={{ backgroundPosition: ["0% center", "100% center"] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                >
+                  ULTIMATE DESIGN PARTNER
+                </motion.span>
+                <br />
+                <span className="text-white">FOR WINNING STARTUPS &amp; BRANDS</span>
+              </motion.h1>
+
+              <p className="mt-5 text-neutral-300 leading-relaxed max-w-prose">
+                {profile.tagline}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <Pill>{profile.location}</Pill>
+                <Pill>On-time delivery</Pill>
+                <Pill>Print-ready files</Pill>
+              </div>
+              <div className="mt-8 flex gap-3">
+                <a
+                  href="#featured"
+                  className="rounded-xl border px-4 py-2 text-sm hover:bg-white hover:text-black transition"
+                >
+                  View work
+                </a>
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="rounded-xl bg-white text-black px-4 py-2 text-sm font-medium"
+                >
+                  Email us
+                </a>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative aspect-square w-full max-w-sm justify-self-center"
+            >
+              {/* Background gradient and border */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700 shadow-inner" />
+              {/* Optional inner border */}
+              <div className="absolute inset-0 rounded-3xl m-4 border border-dashed border-neutral-700" />
+              {/* Memoji image */}
+              <div className="absolute inset-0 grid place-content-center p-4">
+                <img
+                  src="./src/assets/tiles/h2.png"
+                  alt="Srisiya Designer Memoji"
+                  className="max-w-full max-h-full object-contain rounded-3xl drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by strip */}
+      <div className="max-w-6xl mx-auto px-4 pt-10">
+        <p className="text-sm uppercase tracking-widest text-neutral-400 mb-3">Trusted by teams</p>
+        <LogoMarquee logos={partnerLogos} speed={35} gap="gap-12" />
+      </div>
+
+      {/* Featured */}
+      <Section id="featured" title="Featured Designs" kicker="Showcase">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm text-neutral-400">Curated categories from recent work</p>
+          <Link
+  to={`/portfolio/${cat.title.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+  className="text-sm inline-flex items-center gap-1 underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400"
+>
+  View All →
+</Link>
+
+        </div>
+        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2">
+          {featured.map((cat) => (
+            <DesignStrip key={cat.title} title={cat.title} items={cat.items} icon={cat.icon} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Work */}
+      <Section id="work" title="Selected Work" kicker="Portfolio">
+        <div className="mb-6 flex flex-wrap items-center gap-3">
+          <span className="text-sm text-neutral-400">Filter by year</span>
+          <div className="flex gap-2">
+            {years.map((y) => (
+              <button
+                key={y}
+                onClick={() => setActiveYear(y)}
+                className={`px-3 py-1 rounded-full text-sm border ${
+                  activeYear === y ? "bg-white text-black" : "border-neutral-800 hover:bg-neutral-900"
+                }`}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+            >
+              <Card>
+                <div className="aspect-[4/3] w-full rounded-xl border border-neutral-800 bg-neutral-900/60 grid place-content-center text-neutral-500 text-sm">
+                  Thumbnail
+                </div>
+                <div className="mt-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold">{p.title}</h3>
+                    <span className="text-xs text-neutral-400">{p.year}</span>
+                  </div>
+                  <p className="mt-1 text-sm text-neutral-300">{p.blurb}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <Pill key={t}>{t}</Pill>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </motion.article>
+          ))}
+        </div>
+      </Section>
+
+      {/* Services */}
+      <Section id="services" title="Services" kicker="What we do">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {services.map((s) => (
+            <Card key={s.title}>
+              <h3 className="font-semibold text-lg">{s.title}</h3>
+              <p className="mt-2 text-sm text-neutral-300">{s.copy}</p>
+              <ul className="mt-4 space-y-2 text-sm list-disc list-inside text-neutral-300">
+                {s.bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* Experience */}
+      <Section id="experience" title="Experience" kicker="Journey">
+        <div className="space-y-6">
+          {experiences.map((e) => (
+            <div key={e.org} className="relative pl-6">
+              <div className="absolute left-0 top-2 h-2 w-2 rounded-full bg-white" />
+              <h3 className="font-medium">
+                {e.role} · <span className="text-neutral-300">{e.org}</span>
+              </h3>
+              <p className="text-sm text-neutral-400">{e.period}</p>
+              <ul className="mt-2 space-y-1 text-sm text-neutral-300 list-disc list-inside">
+                {e.points.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Contact */}
+      <Section id="contact" title="Let’s Connect" kicker="Contact">
+        <div className="grid gap-6 sm:grid-cols-2">
+          <Card>
+            <h3 className="font-semibold">Start your project</h3>
+            <p className="mt-2 text-sm text-neutral-300">
+              Tell us the goal, audience and deadline — we’ll reply with a plan and estimate.
+            </p>
+            <form action="https://formspree.io/f/mknldvge" method="POST" className="mt-4 grid gap-3">
+              <input
+                name="name"
+                required
+                placeholder="Your name"
+                className="bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2"
+              />
+              <input
+                name="email"
+                required
+                type="email"
+                placeholder="Email"
+                className="bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2"
+              />
+              <textarea
+                name="brief"
+                rows={5}
+                placeholder="Tell us about the project (sizes, deadline, goal)"
+                className="bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2"
+              />
+              <button className="rounded-xl bg-white text-black px-4 py-2 text-sm font-medium">
+                Start your brief — 2 minutes
+              </button>
+            </form>
+          </Card>
+          <Card>
+            <h3 className="font-semibold">Elsewhere</h3>
+            <ul className="mt-2 space-y-2 text-sm">
+              {profile.socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    className="underline decoration-neutral-700 underline-offset-4 hover:decoration-neutral-400"
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 text-sm text-neutral-300">
+              Prefer chat? Message us on WhatsApp.
+            </div>
+          </Card>
+        </div>
+      </Section> -->
+<!-- 
+      {/* Footer */}
+      <footer className="border-t border-neutral-900/60 py-10">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-400">
+          <span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
+          <span>Built with React + Tailwind + Framer Motion</span>
+        </div>
+      </footer>
+    </div> -->
