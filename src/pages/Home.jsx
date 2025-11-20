@@ -30,7 +30,9 @@ import logo3 from "../assets/logos/3.png";
 import logo4 from "../assets/logos/4.png";
 import logo5 from "../assets/logos/5.png";
 import logo6 from "../assets/logos/6.png";
-
+// --- Main brand assets ---
+import srisiyaLogo from "../assets/logos/srisiya_logo.png";
+import heroAvatar from "../assets/tiles/avtar_try2.png";
 
 /* =========================
    UI PRIMITIVES
@@ -384,18 +386,18 @@ export default function Home() {
 
     <Link to="/" className="flex items-center">
       <img
-        src="/src/assets/logos/srisiya_logo.png"
-        alt="Srisiya Design"
-        className="
-          h-16 md:h-20
-          w-auto 
-          object-contain 
-          hover:scale-105 
-          transition-transform 
-          duration-300
-          drop-shadow-[0_0_18px_rgba(56,189,248,0.75)]
-        "
-      />
+  src={srisiyaLogo}
+  alt="Srisiya Design"
+  className="
+    h-16 md:h-20
+    w-auto 
+    object-contain 
+    hover:scale-105 
+    transition-transform 
+    duration-300
+    drop-shadow-[0_0_18px_rgba(56,189,248,0.75)]
+  "
+/>
     </Link>
 
     {/* UPDATED NAVBAR WITH SMOOTH SCROLL */}
@@ -524,7 +526,7 @@ export default function Home() {
             className="flex justify-center md:justify-end items-center md:ml-10"
           >
             <img
-  src="/src/assets/tiles/avtar_try2.png"
+  src={heroAvatar}
   alt="Srisiya Designer Avatar"
   className="w-full max-w-[420px] md:max-w-[540px] h-auto object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.1)]"
 />

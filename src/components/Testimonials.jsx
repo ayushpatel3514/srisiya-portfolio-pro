@@ -2,31 +2,32 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import starImg from "../assets/icons/star.png"; // ← adjust path if needed
-
+import avatar1 from "../assets/tiles/t1.png";
 const testimonials = [
   {
     name: "Manvendra Kaushik",
     role: "Sr. USA & Canada Counsellor, IDP",
     text: "Kamal learns fast, adapts quickly, and handles challenges with a calm, professional mindset. His design quality consistently exceeds expectations.",
-    img: "src/assets/tiles/t1.png",
+    img: avatar1,
+
   },
   {
     name: "DR. Yash Rami",
     role: "Sr. Physiotherapist, Wellness",
     text: "Kamal’s designs elevated our platform with clean visuals, intuitive structure, and clear communication. Exactly the standard we were aiming for.",
-    img: "src/assets/tiles/t1.png",
+     img: avatar1,
   },
   {
     name: "Tanveer Sandhu",
     role: "Marketing Manager, Lacasa Inc.",
     text: "Kamal has a natural eye for layout and user experience. Every project feels seamless, polished, and incredibly easy for our audience to navigate.",
-    img: "src/assets/tiles/t1.png",
+     img: avatar1,
   },
   {
     name: "Vaibhav Arora",
     role: "Co-founder, IDFY",
     text: "Kamal is reliable, detail-focused, and fast. His ability to turn ideas into visually strong, functional designs is genuinely impressive.",
-    img: "src/assets/tiles/t1.png",
+     img: avatar1,
   },
 ];
 

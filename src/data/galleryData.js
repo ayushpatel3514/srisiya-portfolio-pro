@@ -78,7 +78,7 @@ export const CATEGORIES = [
     ],
   },
   {
-    title: "La Casita",
+    title: "Concept Health",
     icon: "",
     items: [
       { src: c1 },
